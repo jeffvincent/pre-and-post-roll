@@ -6,9 +6,11 @@
     <script charset="ISO-8859-1" src="https://fast.wistia.com/static/concat/E-v1.js"></script>
     <script>
 
-      var maincontentId = "2jxa6kw3sl",
-      postrollId = "tw8qh84jwy",
-      prerollId = "a63zn5noiv";
+      var prerollId = "f4f9fe8e0f",
+        maincontentId = "jquk4v6joi",
+        postrollId = "4b8659d2b6",
+        $playercolor = '4991C4';
+      
 
       Wistia.remote.media( maincontentId , function(media) {
         preroll = Wistia.embed( prerollId , {
@@ -20,7 +22,7 @@
           volumeControl: true,
           playbar: false,
           fullscreenButton: false,
-          playerColor: "fc0505",
+          playerColor: $playercolor,
           stillUrl: media.assets.still.url,
           container: "video_container"
         });
@@ -41,7 +43,7 @@
               videoHeight: 540,
               container: "video_container",
               playbar: false,
-              playerColor: "fc0505",
+              playerColor: $playercolor,
               fullscreenButton: false,
               autoPlay: true
             });
@@ -53,7 +55,7 @@
                 container: "video_container",
                 autoPlay: false,
                 playbar: true,
-                playerColor: "fc0505",
+                playerColor: $playercolor,
                 fullscreenButton: false,
                 playButton: false
               });
