@@ -1,1 +1,69 @@
-pre_and_post_roll_test.html
+<html>
+  <body>
+
+
+    <div id="video_container" class="wistia_embed" style="width:960px;height:540px;" data-video-width="960" data-video-height="540">&nbsp;</div>
+    <script charset="ISO-8859-1" src="https://fast.wistia.com/static/concat/E-v1.js"></script>
+    <script>
+
+      var maincontentId = "2jxa6kw3sl",
+      postrollId = "tw8qh84jwy",
+      prerollId = "a63zn5noiv";
+
+      Wistia.remote.media( maincontentId , function(media) {
+        preroll = Wistia.embed( prerollId , {
+          version: "v1",
+          videoWidth: 960,
+          videoHeight: 540,
+          playButton: false,
+          smallPlayButton: false,
+          volumeControl: true,
+          playbar: false,
+          fullscreenButton: false,
+          playerColor: "fc0505",
+          stillUrl: media.assets.still.url,
+          container: "video_container"
+        });
+        preroll.bind('end', function() {
+          mainContent = Wistia.embed( maincontentId , {
+            version: "v1",
+            videoWidth: 960,
+            videoHeight: 540,
+            container: "video_container",
+            autoPlay: true,
+            playbar: true,
+            fullscreenButton: false,
+          });
+          mainContent.bind("end", function() {
+            postroll = Wistia.embed( postrollId , {
+              version: "v1",
+              videoWidth: 960,
+              videoHeight: 540,
+              container: "video_container",
+              playbar: false,
+              playerColor: "fc0505",
+              fullscreenButton: false,
+              autoPlay: true
+            });
+            postroll.bind("end", function() {
+              mainContent = Wistia.embed( maincontentId , {
+                version: "v1",
+                videoWidth: 960,
+                videoHeight: 540,
+                container: "video_container",
+                autoPlay: false,
+                playbar: true,
+                playerColor: "fc0505",
+                fullscreenButton: false,
+                playButton: false
+              });
+            });
+          });
+        });
+      });
+      Wistia.remote.media( postrollId , function(){});
+
+    </script>
+
+  </body>
+</html>
